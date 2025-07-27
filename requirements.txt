@@ -1,9 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+torch==2.4.0+cpu
 PyMuPDF==1.24.2
 sentence-transformers==2.7.0        # bundles MiniLM
 faiss-cpu==1.7.4
 transformers==4.43.2
-accelerate==0.29.3                  # needed for 8-bit loading
-bitsandbytes==0.43.1               # int8 linear layers
 scikit-learn==1.4.2
 xgboost==2.0.3
 numpy==1.26.4
