@@ -23,13 +23,13 @@ class Summarizer:
         max_len: int = 100
     ) -> List[Dict]:
         
-        # Build lookup dictionary
+       
         id_lookup = {
             (os.path.basename(doc_path), title.strip(), page): body
             for title, body, page, doc_path in raw_sections
         }
 
-        # Deduplicate and batch processing
+        
         cache = {}
         batch_inputs = []
         cache_keys = []
@@ -45,7 +45,7 @@ class Summarizer:
             if key in cache:
                 continue
                 
-            body = id_lookup[key][:1500]  # Reduced truncation
+            body = id_lookup[key][:1500]  
             prompt = PROMPT_TMPL.format(
                 persona=persona,
                 job=job,
@@ -55,7 +55,7 @@ class Summarizer:
             cache_keys.append(key)
             batch_inputs.append(prompt)
             
-            # Process in batches of 4
+           
             if len(batch_inputs) == 4:
                 summaries = self._process_batch(batch_inputs, max_len)
                 for k, summary in zip(cache_keys, summaries):
@@ -63,13 +63,13 @@ class Summarizer:
                 batch_inputs = []
                 cache_keys = []
                 
-        # Process final batch
+     
         if batch_inputs:
             summaries = self._process_batch(batch_inputs, max_len)
             for k, summary in zip(cache_keys, summaries):
                 cache[k] = summary
 
-        # Generate output
+       
         analyses = []
         for section in ranked_sections:
             key = (
@@ -92,14 +92,14 @@ class Summarizer:
             batch_prompts,
             padding=True,
             truncation=True,
-            max_length=256,  # Reduced token length
+            max_length=256, 
             return_tensors="pt"
         )
         with torch.no_grad():
             summary_ids = self.model.generate(
                 **inputs,
                 max_length=max_len,
-                num_beams=2,  # Fewer beams for speed
+                num_beams=2,  
                 no_repeat_ngram_size=2
             )
         return self.tokenizer.batch_decode(

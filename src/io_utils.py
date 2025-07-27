@@ -3,7 +3,7 @@ from typing import Dict, List, Any
 import fitz                       # PyMuPDF
 
 
-# ---------- helpers ----------
+
 def _now_iso() -> str:
     return dt.datetime.utcnow().isoformat(timespec="microseconds")
 

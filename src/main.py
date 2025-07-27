@@ -7,28 +7,28 @@ from summarizer import Summarizer
 
 
 def main(config_path: str, output_path: str):
-    print("🟡 Loading configuration...")
+    print(" Loading configuration...")
     config = load_config(config_path)
     persona_role = config["persona"]["role"]
     task_description = config["job_to_be_done"]["task"]
 
-    print("📄 Loading PDF documents...")
+    print(" Loading PDF documents...")
     documents_by_name = load_pdfs(config["documents"])
 
-    print("✂️ Segmenting documents into sections...")
+    print("Segmenting documents into sections...")
     all_sections = []
     for document_name, pages in documents_by_name.items():
         sections = segment_document(pages)
         for title, body, page_num in sections:
             all_sections.append((title, body, page_num, document_name))
 
-    print(f"🔍 Ranking top sections using persona prompt: {persona_role} — {task_description}")
+    print(f" Ranking top sections using persona prompt: {persona_role} — {task_description}")
     prompt = f"{persona_role}. {task_description}"
     ranker = Ranker(prompt)
     ranker.build(all_sections)
     top_sections = ranker.topk(5)
 
-    print("🧠 Summarizing top-ranked sections...")
+    print(" Summarizing top-ranked sections...")
     summarizer = Summarizer()
     final_summary = summarizer.refine(
         persona_role,
@@ -37,7 +37,7 @@ def main(config_path: str, output_path: str):
         all_sections
     )
 
-    print("💾 Writing output to JSON...")
+    print(" Writing output to JSON...")
     metadata = {
         "input_documents": [os.path.basename(doc["filename"]) for doc in config["documents"]],
         "persona": persona_role,
@@ -46,7 +46,7 @@ def main(config_path: str, output_path: str):
     }
 
     dump_output(metadata, top_sections, final_summary, output_path)
-    print(f"✅ Output written to: {output_path}")
+    print(f"Output written to: {output_path}")
 
 
 if __name__ == "__main__":
