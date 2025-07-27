@@ -73,14 +73,13 @@ We generate a JSON output containing:
 docker build -t round1b-persona-intel .
 ```
 ``` bash
-docker build -t round1b-persona-intel .
 
-docker run --rm -v $(pwd):/app round1b-persona-intel python src/main.py --config input.json --output output/challenge1b_output.json
+docker run --rm -v "$(pwd):/app" round1b-app
 
 ```
 ### Windows 
 ```bash
-docker run --rm -v ${PWD}:/app round1b-persona-intel \ python src/main.py --config input.json --output output/challenge1b_output.json
+docker run --rm -v "${PWD}:/app" round1b-app
 ```
 
  ## Final Notes
