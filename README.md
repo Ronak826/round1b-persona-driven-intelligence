@@ -1,94 +1,91 @@
-# 🧠 Round 1B: Persona-Driven Document Intelligence  
-## ✨ Theme: “Connect What Matters — For the User Who Matters”
+# Round 1B: Persona-Driven Document Intelligence  
+##  Theme: “Connect What Matters — For the User Who Matters”
 
-## ✅ Goal
+---
 
 We built a system that reads multiple PDF documents and picks out the most important parts for a specific user (persona) who needs to do a specific task (job-to-be-done).  
 It works for many kinds of users (like students, analysts, researchers) and many types of documents (like reports, textbooks, research papers).
 
 ---
 
-## 🏗️ System Overview
+##  System Overview
 
 Our pipeline has 4 main steps:
 
 ### 1. Load and Segment PDFs
 
-- We extract text from each page.
-- We split each document into sections using simple rules like:
+- We extract text from each page using **PyMuPDF**.
+- Documents are split into sections using simple heuristics like:
   - Font size
   - Uppercase or numbered titles (e.g. "2.1 Overview")
-- Each section is saved with its title, body, page number, and source document.
+- Each section stores title, body, page number, and document path.
+
+---
 
 ### 2. Rank the Most Relevant Sections
 
-- We use a **sentence transformer model** (MiniLM) to understand the meaning of the persona and the task.
-- We compare this meaning with each section to calculate how relevant it is.
-- We also give extra points to travel-related keywords (like "cities", "cuisine", etc.) to help in travel use cases.
-- A hybrid score = 70% semantic similarity + 30% keyword boost.
-- We pick the top 5 sections.
+- We use a lightweight **MiniLM** sentence transformer to encode the user persona and job.
+- Each section is embedded and compared with this query.
+- We also apply keyword boosting for travel-related terms (like “cities”, “cuisine”, etc.).
+- The final **hybrid score** is:
+
+- We select the top-5 most relevant sections.
+
+---
 
 ### 3. Summarize the Top Sections
 
-- We use **DistilBART** to summarize each selected section.
-- A custom prompt is made for each summary:
-  > "Summarize for a [persona] who needs to [job]..."
-- This makes the summary more helpful and focused.
+- We use **quantized T5-small** from Hugging Face to summarize each selected section.
+- Summarization prompt example:
+> "Summarize for a [persona] who needs to [job]: [section title] – [section content]"
+- Summaries are computed in small batches for speed.
+
+---
 
 ### 4. Save Output
 
-- We generate a JSON output with:
-  - Input metadata (persona, job, file names, timestamp)
-  - Top ranked sections (title, page number, rank)
-  - Summaries of each section
+We generate a JSON output containing:
+-  Persona and job metadata
+-  Ranked section metadata (title, page number, rank)
+-  Summary of each selected section
 
 ---
+
+## ⚙️  Performance
+
+- ✅ Runs fully on **CPU**
+- 🚫 No internet required at runtime
+- ⚡ Processes 3–5 PDFs in **under 60 seconds**
+
+---
+### It processes 7 PDFs in under 90 seconds and 5 PDFs in nearly 60 seconds. We can try to optimize this further
+<img width="926" height="288" alt="image" src="https://github.com/user-attachments/assets/77d26b60-1f9a-4c40-9a24-93d29629fd8e" />
 
 ## 🧩 Why It Works for Any Persona
 
-- The system doesn’t depend on fixed rules or topics.
-- It uses language models to **understand meaning**, so it works for any domain (science, business, education).
-- It reads the persona and job every time and customizes the ranking and summaries.
+- The system is model-driven, not rule-based.
+- It dynamically adapts to different personas and tasks using embeddings.
+- Works across domains (travel, science, business, education) without retraining.
 
 ---
-### Local Run Command
-
-Run the main script locally (recommended for faster iteration):
-
-```bash
-py .\src\main.py --config input.json --output output/challenge1b_output.json
-
-```
 
 ```bash
 docker build -t round1b-persona-intel .
+```
+``` bash
 
-docker run --rm -v ${PWD}:/app round1b-persona-intel \
-    python src/main.py --config input.json --output output/challenge1b_output.json
-
+docker run --rm -v "$(pwd):/app" round1b-app
 
 ```
+### Windows 
+```bash
+docker run --rm -v "${PWD}:/app" round1b-app
+```
 
+ ## Final Notes
+Everything is containerized with Docker for easy reproducibility.
 
+The system is lightweight, fast, and general-purpose.
 
-## ⚙️ Models and Performance
+JSON output structure matches submission requirements exactly.
 
-| Component       | Model Used                            | Size    |
-|----------------|----------------------------------------|---------|
-| Embedder       | all-MiniLM-L6-v2 (SentenceTransformer) | ~90 MB  |
-| Summarizer     | distilbart-cnn-12-6                    | ~480 MB |
-| Total Model Size                                      | **< 600 MB** ✅ |
-
-- Runs fully on CPU
-- No internet required during execution
-- Processes 3–5 PDFs in **under 60 seconds**
-
----
-
-## 📦 Final Notes
-
-- All files are containerized with Docker.
-- All dependencies are included in the image.
-- Output matches the required JSON format.
-
-We’ve kept the system **simple, fast, and general** so that it can adapt to any persona and document type without needing changes.
