@@ -1,16 +1,14 @@
-# 🧠 Round 1B: Persona-Driven Document Intelligence  
-## ✨ Theme: “Connect What Matters — For the User Who Matters”
+# Round 1B: Persona-Driven Document Intelligence  
+##  Theme: “Connect What Matters — For the User Who Matters”
 
 ---
-
-## ✅ Goal
 
 We built a system that reads multiple PDF documents and picks out the most important parts for a specific user (persona) who needs to do a specific task (job-to-be-done).  
 It works for many kinds of users (like students, analysts, researchers) and many types of documents (like reports, textbooks, research papers).
 
 ---
 
-## 🏗️ System Overview
+##  System Overview
 
 Our pipeline has 4 main steps:
 
@@ -47,27 +45,21 @@ Our pipeline has 4 main steps:
 ### 4. Save Output
 
 We generate a JSON output containing:
-- ✅ Persona and job metadata
-- 📄 Ranked section metadata (title, page number, rank)
-- ✍️ Summary of each selected section
+-  Persona and job metadata
+-  Ranked section metadata (title, page number, rank)
+-  Summary of each selected section
 
 ---
 
-## ⚙️ Models and Performance
-
-| Component       | Model Used                            | Size     |
-|----------------|----------------------------------------|----------|
-| Embedder       | all-MiniLM-L6-v2 (SentenceTransformer) | ~90 MB   |
-| Summarizer     | t5-small (quantized)                   | ~120 MB  |
-| **Total**      |                                        | **< 220 MB** ✅ |
+## ⚙️  Performance
 
 - ✅ Runs fully on **CPU**
 - 🚫 No internet required at runtime
 - ⚡ Processes 3–5 PDFs in **under 60 seconds**
 
 ---
-### Processes 6–7 PDFs in under 30 seconds
-<img width="1042" height="330" alt="image" src="https://github.com/user-attachments/assets/a7904dd0-812f-4e07-87fe-4e635733ef96" />
+### It processes 7 PDFs in under 90 seconds and 5 PDFs in nearly 60 seconds. We can try to optimize this further
+<img width="926" height="288" alt="image" src="https://github.com/user-attachments/assets/77d26b60-1f9a-4c40-9a24-93d29629fd8e" />
 
 ## 🧩 Why It Works for Any Persona
 
