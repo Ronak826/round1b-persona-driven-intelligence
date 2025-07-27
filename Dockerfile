@@ -1,6 +1,7 @@
 FROM python:3.10-slim
 
 # ---------- System dependencies ----------
+# Install necessary system packages
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential \
@@ -8,22 +9,27 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# ---------- Python dependencies ----------
-COPY requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
-
-# ---------- Application setup ----------
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy project files into the container
-COPY src/ src/
+# ---------- Python dependencies ----------
+# Copy only the requirements file first to leverage Docker's layer caching.
+# This step will only re-run if requirements.txt changes.
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# ---------- Application setup ----------
+# Now, copy the rest of the project files into the container
+COPY src/ ./src/
 COPY input.json .
 COPY run.sh .
 COPY approach_explanation.md .
-COPY output/ output/
+COPY output/ ./output/
+COPY input/ ./input/
 
-# Make sure the run script is executable
+# Make the run script executable
 RUN chmod +x run.sh
 
 # ---------- Default command ----------
-ENTRYPOINT ["bash", "run.sh"]
+# Set the entrypoint to run the script when the container starts
+ENTRYPOINT ["python", "-u", "src/main.py", "--config", "input.json", "--output", "output/challenge1b_output.json"]
