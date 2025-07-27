@@ -66,6 +66,8 @@ We generate a JSON output containing:
 - ⚡ Processes 3–5 PDFs in **under 60 seconds**
 
 ---
+### Our solution is processing 6-7 pdf in upto 30 second
+<img width="1042" height="330" alt="image" src="https://github.com/user-attachments/assets/a7904dd0-812f-4e07-87fe-4e635733ef96" />
 
 ## 🧩 Why It Works for Any Persona
 
