@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "input_documents": [
+      "Breakfast Ideas.pdf",
+      "Dinner Ideas - Mains_1.pdf",
+      "Dinner Ideas - Mains_2.pdf",
+      "Dinner Ideas - Mains_3.pdf",
+      "Dinner Ideas - Sides_1.pdf",
+      "Dinner Ideas - Sides_2.pdf",
+      "Dinner Ideas - Sides_3.pdf",
+      "Dinner Ideas - Sides_4.pdf",
+      "Lunch Ideas.pdf"
+    ],
+    "persona": "Food Contractor",
+    "job_to_be_done": "Prepare a vegetarian buffet-style dinner menu for a corporate gathering, including gluten-free items.",
+    "processing_timestamp": "2025-07-28T16:31:54.420302"
+  },
+  "extracted_sections": [
+    {
+      "document": "Lunch Ideas.pdf",
+      "section_title": "Chicken and Avocado Wrap",
+      "importance_rank": 1,
+      "page_number": 15
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "section_title": "BBQ Chicken Wrap",
+      "importance_rank": 2,
+      "page_number": 12
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "section_title": "Chicken and Veggie Stir-Fry",
+      "importance_rank": 3,
+      "page_number": 7
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "section_title": "Chickpea and Avocado Sandwich",
+      "importance_rank": 4,
+      "page_number": 9
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "section_title": "Chicken Caesar Wrap",
+      "importance_rank": 5,
+      "page_number": 2
+    }
+  ],
+  "subsection_analysis": [
+    {
+      "document": "Lunch Ideas.pdf",
+      "refined_text": "• 1/4 cup cucumber, diced • 3/4 cup baby spinach • 1 tablespoon ranch dressing Instructions: • Lay the tortilla flat and spread the hummus evenly. • Add the chicken, avocado, and spinach; • Roll up tortilla tightly and slice in half. Chicken and Avocado Wrap Ingredients - Ingredient:  1 whole wheat tortilla • 1/2 cup cooked lentils; sliced • half avocado; 1/4 cups cucumber; 1/2 cups baby broccoli.",
+      "page_number": 15
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "refined_text": "and salt and pepper to taste Instructions: • In a large bowl, combine the coucous, tomatoes, cucumber, red onion, and feta cheese. • Add the chicken, cheese, or coleslaw mix.  1 cup chicken breast • 2 tablespoons BBQ sauce • 1/4 cup colelaw mixture ; salt et pepper in the taste of the dressing - Ingredients of barbecue chicken wrap – ingredients: '",
+      "page_number": 12
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "refined_text": "olive oil over medium heat. Add bell pepper, broccoli, and snap peas to a large skillet. Stir-fry until tender. • Add mashed potatoes • 1/2 cup broccoli florets • 1/4 cup snap pears • 2 tablespoons soy sauce • 1 teaspoon sesame oil • Cooked rice for serving Instructions: • In rome, combine the shrimp, peeled and deveined • 3/4 cup red onion, fine",
+      "page_number": 7
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "refined_text": "• 1 tablespoon olive oil • Salt and pepper to taste Instructions: • In a large bowl, combine the tomatoes, cucumber, red onion, olives, and feta cheese. • Season with salt, pepper, then top with the second slice of bread. Greek Salad Ingredients : > 1 cup cherry tomatoes; halved • 1/2 cucumber; diced; 1/4 cup black olive, sliced • 3/4 cup fetus cheese, crumble",
+      "page_number": 9
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "refined_text": ", then toss to combine.;: • 1 cup cooked chicken breast • 1/2 cup cherry tomatoes, chopped • 1/4 cucumber, diced • 3/4 cup red onion, finely chopped; 1/4 cup feta cheese, crumbled. • 2 tablespoons olive oil - 1 tablespoon lemon juice • Salt and pepper to taste Instructions:",
+      "page_number": 2
+    }
+  ]
+}

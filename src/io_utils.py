@@ -1,6 +1,6 @@
 import json, os, datetime as dt
 from typing import Dict, List, Any
-import fitz                       # PyMuPDF
+import fitz                     
 
 
 
@@ -8,7 +8,6 @@ def _now_iso() -> str:
     return dt.datetime.utcnow().isoformat(timespec="microseconds")
 
 
-# ---------- load / save ----------
 def load_config(path: str) -> Dict[str, Any]:
     with open(path, "r", encoding="utf-8") as fp:
         return json.load(fp)

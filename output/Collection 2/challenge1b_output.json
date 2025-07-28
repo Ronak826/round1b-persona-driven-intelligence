@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "input_documents": [
+      "Learn Acrobat - Create and Convert_1.pdf",
+      "Learn Acrobat - Create and Convert_2.pdf",
+      "Learn Acrobat - Edit_1.pdf",
+      "Learn Acrobat - Edit_2.pdf",
+      "Learn Acrobat - Export_1.pdf",
+      "Learn Acrobat - Export_2.pdf",
+      "Learn Acrobat - Fill and Sign.pdf",
+      "Learn Acrobat - Generative AI_1.pdf",
+      "Learn Acrobat - Generative AI_2.pdf",
+      "Learn Acrobat - Request e-signatures_1.pdf",
+      "Learn Acrobat - Request e-signatures_2.pdf",
+      "Learn Acrobat - Share_1.pdf",
+      "Learn Acrobat - Share_2.pdf",
+      "Test Your Acrobat Exporting Skills.pdf",
+      "The Ultimate PDF Sharing Checklist.pdf"
+    ],
+    "persona": "HR professional",
+    "job_to_be_done": "Create and manage fillable forms for onboarding and compliance.",
+    "processing_timestamp": "2025-07-28T16:31:41.020129"
+  },
+  "extracted_sections": [
+    {
+      "document": "Learn Acrobat - Fill and Sign.pdf",
+      "section_title": "Types of PDF forms",
+      "importance_rank": 1,
+      "page_number": 2
+    },
+    {
+      "document": "Learn Acrobat - Fill and Sign.pdf",
+      "section_title": "Fill and Sign PDF Forms",
+      "importance_rank": 2,
+      "page_number": 1
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "section_title": "Set privileges and permissions for others",
+      "importance_rank": 3,
+      "page_number": 21
+    },
+    {
+      "document": "Learn Acrobat - Fill and Sign.pdf",
+      "section_title": "Fill in PDF Forms",
+      "importance_rank": 4,
+      "page_number": 8
+    },
+    {
+      "document": "Learn Acrobat - Generative AI_2.pdf",
+      "section_title": "License deployment",
+      "importance_rank": 5,
+      "page_number": 18
+    }
+  ],
+  "subsection_analysis": [
+    {
+      "document": "Learn Acrobat - Fill and Sign.pdf",
+      "refined_text": "Form Tools. You can now fill in the form fields and sign the forms using the sign tools described in following topics. To fill text fields: 1. From the left panel, you can Fill & Sign. The form tool displays the Fill and Sign tool in Acrobat and then select E-Sign.",
+      "page_number": 2
+    },
+    {
+      "document": "Learn Acrobat - Fill and Sign.pdf",
+      "refined_text": "- Fill & Sign PDF Forms – You can easily fill, sign, and share your documents using Acrobat's Fill and Sign tool. Types of PDF forms. Easily fillable forms for onboarding and compliance. type of forms can be submitted to a pc, fax, or email.",
+      "page_number": 1
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "refined_text": "to create digital signatures that are trusted if the signed document is opened in Adobe’s Reader 9 or later. Use Adobe Acrobat Pro to encrypt a PDF document with certificate IDs to restrict use such as printing, editing, or copying • Sign with e-signatures or comments • Create and manage forms for HR professionals - • Certify, sign, and comment • Using Adobe Pro software to enable users of Reader 9, or",
+      "page_number": 21
+    },
+    {
+      "document": "Learn Acrobat - Fill and Sign.pdf",
+      "refined_text": "to fill in PDF Forms - Is the form fillable? Not all forms are filledable. Sometimes form creators don’t convert their PDFs to interactive forms. Or, they intentionally design a form that you can fill only by hand or with the Fill & Sign tool. 1. Select either the Hand Tool or the Select Tool from the context menu of the page to access options, such as radio buttons. Press Tab to move forward or Shift+",
+      "page_number": 8
+    },
+    {
+      "document": "Learn Acrobat - Generative AI_2.pdf",
+      "refined_text": "HR professionals need to Create and manage fillable forms for onboarding and compliance.: License deployment - You can manage the deployment of Acrobat AI Assistant through the Adobe Admin Console. As an admin, you can choose to either select the users to assign or create product profiles. You may choose either to choose the user to create or assign products profiles and assign users in the profiles.",
+      "page_number": 18
+    }
+  ]
+}
