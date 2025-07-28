@@ -67,6 +67,13 @@ We generate a JSON output containing:
 - It dynamically adapts to different personas and tasks using embeddings.
 - Works across domains (travel, science, business, education) without retraining.
 
+### Current Input and Output Structure 
+
+<img width="437" height="334" alt="image" src="https://github.com/user-attachments/assets/8310a1d4-860b-4e54-919b-0bb62ab280e2" />
+
+
+### Before running, please remove the 'Collections 1', 'Collections 2', and 'Collections 3'.... folders from the output directory
+
 ---
 
 ```bash
