@@ -53,9 +53,9 @@ We generate a JSON output containing:
 
 ## ⚙️  Performance
 
-- ✅ Runs fully on **CPU**
-- 🚫 No internet required at runtime
-- ⚡ Processes 3–5 PDFs in **under 60 seconds**
+- Runs fully on **CPU**
+- No internet required at runtime
+- Processes 3–5 PDFs in **under 60 seconds**
 
 ---
 ### It processes 7 PDFs in under 90 seconds and 5 PDFs in nearly 60 seconds. We can try to optimize this further
@@ -83,6 +83,8 @@ docker run --rm -v "${PWD}:/app" round1b-persona-intel
 ```
 
  ## Final Notes
+We have reduced processing time and improved accuracy, with potential for further optimization
+
 Everything is containerized with Docker for easy reproducibility.
 
 The system is lightweight, fast, and general-purpose.
