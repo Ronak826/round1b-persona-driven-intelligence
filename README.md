@@ -74,12 +74,12 @@ docker build -t round1b-persona-intel .
 ```
 ``` bash
 
-docker run --rm -v "$(pwd):/app" round1b-app
+docker run --rm -v "$(pwd):/app" round1b-persona-intel
 
 ```
 ### Windows 
 ```bash
-docker run --rm -v "${PWD}:/app" round1b-app
+docker run --rm -v "${PWD}:/app" round1b-persona-intel
 ```
 
  ## Final Notes
